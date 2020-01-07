@@ -1,0 +1,41 @@
+# 多文档化
+server:
+  port: 8080
+ spring:
+   profiles:
+     active: dev
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://hadoop000:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always # 初始化模式 可配合初始化脚本使用 如果编写了初始化脚本文件(schema-all.sql) 需要此处设置初始化模式
+    # schema:
+    #   - classpath:xxx-ddl.sql
+    #   - classpath:xxx-dml.sql
+
+#  # es 配置
+#  data:
+#    elasticsearch:
+#      cluster-name:
+#      cluster-nodes:
+#
+#  # redis 配置
+#  redis:
+#    database: 0
+#    host: hadoop000
+#    port: 6379
+#    timeout: 5000
+#
+#
+#
+#---
+#server:
+#  port: 8082
+#spring:
+#  profiles: prod
